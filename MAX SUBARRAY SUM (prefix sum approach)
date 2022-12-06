@@ -1,0 +1,36 @@
+//PRINTING THE MAX SUBARRAY SUM (prefix sum approach)
+
+#include <iostream>
+using namespace std;
+int  largestsum(int arr[], int n){
+    
+    //prefix sum 
+    int prefix_sum[100]={0}; //you can initialise it to any size.... this is the prefix sum array 
+    prefix_sum[0]=0;
+    for(int i=1;i<n;i++){
+        prefix_sum[i]=prefix_sum[i-1]+arr[i];
+    }
+    
+    //largest sum logic 
+    for (int i=0;i<n;i++){
+        for (int j=i;j<n;j++){
+            
+            int subarraysum=i>0 ? prefix_sum[j]-prefix_sum[i-1] : prefix_sum[j];
+            int largestsum=max (largestsum,subarraysum);
+            
+        }
+    }
+    return largestsum;
+    
+}
+
+
+int main(){
+    int arr[]={10,20,30,40,45,60,70,89};
+    int n=sizeof(arr)/sizeof(int);
+    cout<<largestsum(arr,n)<<endl;
+    
+    return 0;
+    
+    
+}
