@@ -1,0 +1,26 @@
+//VECTORS 
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+    
+    //demo vector
+    vector<int> arr={1,2,3,4,5,6};
+    
+    //fill comstructor 
+    vector<int> arr1(10,7); //this will create a array of size 10 with all elements 7 in value.
+    
+    //pop_back
+    arr.pop_back();//this will pop the last element in the vector arr 
+    //push_back 
+    arr.push_back(2); //this will add 2 to  the last position in the vector arr 
+    
+    //print all the elements 
+    for (int i=0;i<arr.size();i++)
+    {
+        cout<<arr[i]<<endl;
+    }
+    
+    return 0;
+}
