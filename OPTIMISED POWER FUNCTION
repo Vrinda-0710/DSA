@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int optimisedPower (int a, int n){
+    
+    if (n==0){
+        return 1;
+    }
+
+    int subprob=optimisedPower(a,n/2);
+    int square_sub_prob=subprob*subprob;
+    
+    
+    if (n&1){
+        
+        return a*square_sub_prob;
+    }
+    
+    return square_sub_prob;
+}
+
+int main(){
+    int a,n;
+    cin>>a>>n;
+    cout<<optimisedPower(a,n)<<endl;
+    return 0;
+    
+}
