@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+
+int power (int a , int N ){
+     //base case 
+    if (N==0){
+        return 1;}
+    else{
+        return power (a,N-1);
+    }        
+        
+        
+}
+ 
+int main(){
+    int a; int N;
+     
+    cin>>a>>N;
+    
+    cout<<power(a,N);
+    return 0;
+ }
