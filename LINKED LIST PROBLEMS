@@ -1,0 +1,144 @@
+//we are given a SORTED linked list and a element to insert ...we have to INSERT it in the ll such that after the
+//insert the ll remains sorted 
+
+Node* sortedinsert(int x,Node* head){
+    
+    Node* temp=new Node(x);
+    if(head==NULL){
+        return temp;
+    }
+    if(x<head->data){
+        temp->next=head;
+        return head;
+    }
+    Node* curr=head;
+    while(curr->next!=NULL && curr->next->data<x){
+        curr=curr->next;
+    }
+    temp->next=curr->next;
+    curr->next=temp;
+    return head;
+    
+}
+
+//FIND MIDDLE OF LINKED LIST ...........if you have two nodes in ll print the secong node 
+
+void printmiddle(Node* head){
+    if(head==NULL){
+        return;
+    }
+    int count=0;
+    Node* curr;
+    for(curr=head;curr!=NULL;curr=curr->next){
+        count++;
+    }
+    curr=head;
+    for(i=0;i<count/2;i++){
+        curr=curr->next;
+    }
+    cout<<curr->data;
+}
+
+//!!! this solution requires two traversals of the ll 
+//there is a efficient solution which requires only one traversal 
+// see that solution urself :))
+
+
+//find the nth node from the end of the linked list 
+//IDEA- if the length is len ...you need to print the (len-n+1)th node 
+
+
+
+
+
+//Reversing a linked list 
+
+Node* revlist(Node* head){
+    Node* curr=head;
+    node* prev =null;
+    while(curr!=NULL){
+        Node* next=curr->next;
+        curr->next=prev;
+    prev=curr;
+    curr=next;
+    }
+    return prev; //prev is the new head and we have to return the head of the reversed list 
+}
+
+
+//Recursively Reversing a linked list 
+
+Node* rec_revlist(Node* head){
+    Node8 rest_head=rec_revlist(head->next);
+}
+
+
+//remove duplicates from a sorted singly linked list 
+void removeduplicates(Node* head){
+    Node* curr= head;
+    while(curr!=NULL && curr->next!=NULL){
+        if(curr->data=curr->next->data){
+            Node*temp=curr->next;
+            curr->next=curr->next->next;
+            delete (temp);
+        }
+        else{
+            delete (temp);
+        }
+    }
+}
+
+//DETECT  LOOP IN LINKED list
+//this method will modify ur linked list ....it will destroy it but will find the loop :)
+see in video 
+
+
+//MERGE two Sorted linked list 
+//we will iinitially keep the head, tail pointer on smaller node 
+Node* sortedmerge(Node*a,Node*b){
+    if (a==NULL) return b;
+    if(b==NULL) return a;
+    
+    Node*head=NULL;
+    Node* tail=NULL;
+    if(a->data<b->data){
+        head=tail=a;
+        a=a->next;
+    }
+    else{
+        head=tail=b;
+        b=b->next;
+    }
+    //actual merging part 
+    while(a!=NULL &&b!=NULL){
+        if(a->data<b->data){
+            tail->next=a 
+        }
+    }
+    
+}
+
+
+
+//FLOYDS CYCLE DETECTION 
+
+bool isloop(Node* head){
+    
+    Node* slowpointer=head;
+    Node* fastpointer=head;
+    
+    while(fast->next!=NULL && fast->next->next!=NULL){
+        slowpointer=slowpointer->next;
+        fastpointer=fastpointer->next->next;
+        if(slowpointer==fastpointer){
+            return true;
+        }
+        else{
+            return false:
+        }
+    }
+}
+
+
+
+
