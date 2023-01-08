@@ -1,0 +1,119 @@
+//DOUBLY LINKED LIST 
+
+struct Node {
+    int data;
+    int next;
+    int prev;
+    Node(int x){
+        data=x;
+        prev=NULL;
+        next=NULL;
+    }
+}
+
+//inserting a new node at begining and returning the head 
+Node* insertbegin(int x, Node* head){
+    Node* temp=new Node(x);
+    temp->next=head;
+    
+    if(head!=NULL){
+        head->prev=temp;
+        return temp;
+    }
+    
+}
+
+
+//inserting a new node at end and returning the modified head(head is 
+//only modified if initial head was NULL else it is not)
+Node* insertend(int x, Node* head){
+    Node* temp= new Node(x);
+    if(head==NULL){
+        return temp;
+    }
+    Node* curr=head;
+    while(curr->next!=NULL){
+        curr->next++;
+    }
+    curr->next=temp;
+    temp->prev=curr;
+    return head;
+}
+
+//reversing a doubly ll
+//idea- TRAVERSE THROUGH ALL THE NODE AND SWAP THE NEXT AND PREV....AND THEN TAKE CARE OF THE CORNER CASES
+
+Node* reversell(Node* head){
+    if(head==NULL || head->next=NULL){
+        return head;
+    }
+    else{
+        Node* prev=NULL; //initialising prev variable
+        Node* curr= head;
+        while(curr!=NULL){
+            prev=curr->prev;
+            curr->prev=curr->next;
+            curr->next=prev;
+            curr=curr->prev;//we are moving curr forward by this command since now prev and next have been reversed 
+        }
+        return prev->prev;
+    }
+    
+}
+
+
+//deleting the head of doubly linked list 
+Node* delhead(Node* head){
+    if(head=NULL){
+        return NULL;
+    }
+    if(head->next=NULL){
+        delete head;
+        return NULL;
+    }
+    else{
+        Node* temp=head;
+        head=head->next;
+        head->prev=NULL;
+        delete temp;
+        return head;
+    }
+}
+
+
+//delete last node of double ll
+
+Node* delnode(Node* head){
+    if(head=NULL){
+        return NULL;
+    }
+    if(head->next=NULL){
+        delete head;
+        return NULL;
+    }
+    else{
+        Node* curr=head;
+        while(curr->next!=NULL){
+            curr=curr->next;
+        }
+        curr->prev->next=NULL;
+        return head;
+        
+    }
+    
+    
+    
+    
+    
+    
+}
+int main(){
+    Node* head=new Node(10);
+    Node* temp1=new Node(20);
+    Node* temp2=new Node(30);
+    head->next=temp1;
+    temp1->next=temp2;
+    temp2->prev=temp1;
+    temp1->prev=head;
+    
+}
