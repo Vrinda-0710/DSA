@@ -1,0 +1,110 @@
+//ARRAY IMPLEMENTATION OF STACK 
+
+
+struct Mystack{
+    int *arr;
+    int cap;
+    int top;
+    
+    Mystack(int c){
+        cap=c;
+        arr=new int[cap];
+        top=-1;
+        
+    }
+}
+
+void push(int x){
+    if (top==cap-1){
+        cout<<"stackoverflow";
+    }
+    else{
+        top++;
+        arr[top]=x;
+    }
+    
+}
+int pop(){
+    if (top==-1){
+        cout<<"stack underflow ";
+    }
+    else{
+         int popped= arr[top];
+        top--;
+        return popped;
+    }
+}
+
+int peek(){
+    if (top==-1){
+        return 0;
+    }
+    return arr[top];
+}
+
+int size(){
+    return (top+1);
+}
+
+
+bool isEmpty(){
+    return (top==-1);
+}
+
+
+//LINKED LIST IMPLEMENTATION OF stack
+
+struct Node{
+    
+    int data;
+    Node* next;
+    
+    Node(int d){
+        next=NULL;
+        data=d;
+    }
+}
+
+struct MyStack(){
+    
+    Node* head;
+    int sz; // sz is the size of the stack
+    MyStack(){
+        head=NULL;
+        sz=0;
+    }
+    void push(int x){
+        Node* temp= new Node(x);
+        temp->next=head;
+        head=temp;
+        sz++;
+    }
+    int pop(){
+        if(head==NULL){
+            return INT-MAX;
+        }
+        int res=head->data;
+        node* temp=head;
+        head=head->next;
+        delete (temp);
+        sz--;
+        return res;
+    }
+    
+    int size(){
+        return sz;
+    }
+    bool isEmpty(){
+        return (head==NULL);
+    }
+    int peak(){
+        if(head==NULL){
+            return INT_MAX;
+        }
+        return head->data;
+    }
+}
+
+
+
+
