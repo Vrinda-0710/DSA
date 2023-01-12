@@ -1,0 +1,60 @@
+//BINARY TREE 
+
+
+struct Node{
+    int key;
+    Node* left;
+    Node* right;
+    
+    Node(int k){
+        key=k;
+        left=right=NULL;
+    }
+}
+
+int main(){
+    Node* root=new Node(10);
+    root->left=new Node(20);
+    root->right=new Node(30);
+    root->left->left=new Node(40);
+}
+
+
+//INORDER TRAVERSAL
+//time complexity- O(1) for all nodes= O(n)
+//Auxiliary space-O(h)
+
+void inorder (Node* root){
+    
+    if(root!=NULL){
+        inorder(root->left);
+        cout<<(root->key)<<" ";
+        inorder(root->right);
+    }
+}
+
+//PREORDER TRAVERSAL 
+//time complexity- O(1) for all nodes= O(n)
+//Auxiliary space-O(h)
+
+void preorder(Node* root){
+    if{
+        cout<<(root->key)<<" ";
+        preorder(root->left);
+        preorder(root->right);
+    }
+}
+
+//POSTORDER TRAVERSAL 
+//time complexity- O(1) for all nodes= O(n)
+//Auxiliary space-O(h)
+
+
+void postorder(Node* root){
+    if{
+        
+        postorder(root->left);
+        postorder(root->right);
+        cout<<(root->key)<<" ";
+    }
+}
