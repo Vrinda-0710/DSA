@@ -1,0 +1,29 @@
+//CHECK FOR BALANCED TREE 
+
+bool isBalanced(Node* root){
+    if (root==NULL) return true;
+    int lh=height(root->left);
+    int rh=height(root->right);
+    return (abs(lh-rh)<=1 && isBalanced(root->left) && (root->right));
+}
+
+
+//MAXIMUM WIDTH OF BINARY TREE 
+//IT IS THE MAXIMUM NUMBER OF NODES AT ANY LEVEL
+//idea is to ush all the levels one by one into the queue and then see if the current queue size of greater than the result obtained till now... if yes update it 
+
+
+int maxWidth(Node* root){
+    if (root==NULL ) return 0;
+    
+    queue<int> q;
+    q.push(root);
+    
+    int result=0;
+    while(q.empty()==false{
+        
+    })
+    
+    
+    
+}
