@@ -1,0 +1,92 @@
+//BINARY SEARCH TREE--FOR EVERY NODE, KEY IN LEFT SIDE IS SMALLER AND KEY IN RIGHT ARE BIGGER 
+//WE GENERALLY CONSIDER DISTINCT KEYS 
+
+
+//search operation in BST
+//time com-O(h)
+//aux space-O(h)
+ 
+ //BST search 
+ //RECURSIVE
+
+bool search(Node* root, int x){
+    
+    if (root==NULL){
+        return false;
+    }
+    else if (root->key==x){
+        return true;
+    }
+    else if (root->key>x){
+        return search(root->left,x);
+    }
+    else{
+        return search (root->right,x);
+    }
+    
+}
+ 
+
+ 
+ Node *insert(Node* root,int x){
+    if(root==NULL){
+        return new Node(x);
+    }
+    if(root->key>x){
+        root->left=insert(root->left,x);
+    }
+    if(root->key<x){
+        root->right=insert(root->right,x)
+        
+    }
+     
+ }
+ 
+ 
+  //BST deletion
+  //make sure to maintain the bst properties after deletion-(right child is greater and left child is smaller)
+ // if the node to be deleted has only one child then simply replace the deleted node with that child  
+ //if it has two children then you hcan replace the deleted node with the inorder successor(closest greater value)
+ //inorder successor is the next value in the inorder traversal
+ //to delete you need to SEARCH the key first 
+ 
+//how to find inorder successor- IT IS THE LEFT MOST LEAF OF THE RIGHT CHILD 
+//COMPLEXITY-O(h)
+
+Node *getSuccessor(Node* curr){
+    curr=curr->right;
+    while(curr!=NULL && curr->left!=NULL){
+        curr=curr->left;
+    }
+    return curr;
+}
+
+Node* delNode(Node* root){
+    if (root==NULL){
+        return root;
+    }
+    else if (root->key>x){
+        root->left=delNode(root->left,x)
+    }
+    else if (root->key>x){
+        root->right=delNode(root->right,x)
+    }
+    else{
+        if(root->left==NULL){
+            Node* temp=root->right;
+            delete root;
+            return temp;
+        }
+        else if(root->right==NULL){
+            Node* temp=root->left;
+            delete root;
+            return temp;
+        }
+        else{ //it has two children case
+            Node * succ=getSuccessor(root);
+            root->key=succ->key;
+            root->right=delNode(root->right,succ->key);
+        }
+        return root;
+    }
+}
