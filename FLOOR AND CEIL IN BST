@@ -1,0 +1,22 @@
+//floor in a BST 
+//you have to return the largest value smaller than the input 
+
+Node* floor(Node* root, int x){
+    Node* res=NULL;
+    while(root!=NULL){
+        if(root->key)==x{
+            return root;
+        }
+        else if(root->key>x){
+            root=root->left; 
+        }
+        else{
+            res=root;
+            res=root->left;
+        }    
+        }
+        return res;
+    }
+    
+//ceil in BST
+//you have to return the smallest value larger than the input 
