@@ -1,0 +1,18 @@
+//self balaancing bst 
+
+
+//AVL TREE
+//balance factor =|lh-rh|
+//balance factor <= 1
+//INSERT OPERATION- do normal insert operation as in bst ... traverse all ansectors of the newly inserted node form node to the root 
+// if you find ansector unbalanced, perform rotations
+ //time comp- theta (log n )
+ 
+ //RED BLACK TREE
+ //it is also a self balancing binary tree like AVL tree therefore search is same as BST nad insertion and deletion requires rotations 
+// when in general u have a mix of search insert and delete operations RED BLACK TREE is a better operations
+//1) Every node is either red or black 
+// 2) root is always black 
+//3) No two consecutive Reds
+// 4) IMP- NUMBER OF BLACK NODES FROM EVERY NODE TO IT DESCENDENTS SHOUKD BE SAME 
+//N0. OF NODES FROM ON THE PATH FROM A NODE TO ITS FARTHEST DESCENDENT EAF SHOUKD BE TWICE THE NO. OF NODES FROM THE ON THE PATH TO CLOSEST DESCENDENT 
